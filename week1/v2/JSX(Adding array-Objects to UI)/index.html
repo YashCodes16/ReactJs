@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Start with JSX</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        const App = () => {
+            let arr = [10, 20, 30, 40, 50]
+            let arrCars = ["BMW", "AUDI", "Mercedes", "Maruti Suzuki", "KIA"]
+            let obj = {
+                name: "Yash",
+                age: 26
+            }
+
+            return (<>
+                <p>My name is {obj.name}</p>
+                <p>My age is {obj["age"]}</p>
+                {arr.map((val, index) => {
+                    let atPosition = index + 1
+                    return <h4 key= {index}>Array {atPosition} is {val}</h4>
+                })}
+                <h2>Cars</h2>
+                <ul>
+                {arrCars.map((val,index)=><li key ={index}>{val}</li>)}
+                </ul>
+
+            </>)    
+        };
+
+        ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Start with JSX</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        const App = () => {
+            let arr = [{
+                name: "BMW",
+                avg: "16 km",
+                img: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQfzOc1CeqdcHBObFDTKAO0hSCBaH2qBnCWJgGQRcSrxAxC9GG8FkgqbBHjGof_Rv5uFVPwMpOi17PYJLPg_mv9X6WocHmHsil6QVSkGPjP9Q"
+            }, {
+                name: "Mercedes",
+                avg: "15 km",
+                img: "https://stimg.cardekho.com/images/carexteriorimages/630x420/Mercedes-Benz/GLS/9791/1756376248917/front-left-side-47.jpg?impolicy=resize&imwidth=480"
+            }, {
+                name: "Audi",
+                avg: "14 km",
+                img: "https://stimg.cardekho.com/images/carexteriorimages/630x420/Audi/A4/10548/1757137106350/front-left-side-47.jpg?impolicy=resize&imwidth=480"
+            }]
+
+
+            return (<>
+                <h1>Students Details</h1>
+                <table border={1}>
+                    <thead>
+                        <tr>
+                            <th>Cars Name</th>
+                            <th>Avg</th>
+                            <th>Cars Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {arr.map((car, index) => {
+                            return <tr key={index}>
+                                <td>{car.name}</td>
+                                <td>{car.avg}</td>
+                                <td><img src={car.img} alt={car.name}></img></td>
+                            </tr>
+                        })}
+                    </tbody>
+                </table>
+            </>)
+        };
+
+        ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+
+    </script>
+</body>
+
+</html>
